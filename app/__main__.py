@@ -15,6 +15,7 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import plot_confusion_matrix
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
@@ -25,10 +26,9 @@ from sklearn.svm import SVC
 from app.configuration.config import json_config as cfg
 
 class App():
-    def plot_show(self, plt):
+    def plot_show(self):
         pyplot.draw()
         pyplot.pause(0.1)
-        input("Press Enter to continue")
 
     def run(self):
         #load dataset
@@ -36,7 +36,6 @@ class App():
 
         if cfg.should_describe_data:    
             print(dataset.shape)
-            #peek 20 rows
             print(dataset.head(20))
             #describe each column
             print(dataset.describe())
@@ -44,12 +43,12 @@ class App():
             classColumnName = dataset.columns[-1]
             #print avaiable classes
             print(dataset.groupby(classColumnName).size())
+        
+        # dataset.plot(kind='box', subplots=True, layout=(3,4), sharex=False, sharey=False)
+        # self.plot_show()
 
-        dataset.plot(kind='box', subplots=True, sharex=False, sharey=False)
-        self.plot_show(pyplot)
-
-        scatter_matrix(dataset)
-        self.plot_show(pyplot)
+        # scatter_matrix(dataset)
+        # self.plot_show()
 
         array = dataset.values
         x = array[:,0:len(dataset.columns)-1]
@@ -57,23 +56,19 @@ class App():
         #na podstawie x i y otrzymujemy tablice testowe i wynikowe
         x_train, x_validation, y_train, y_validation = train_test_split(x,y, test_size=cfg.test_size, random_state=1)
 
-        # Spot Check Algorithms
-        # algorithms = {
-        #     'KNN': KNeighborsClassifier,
-        #     'CART': DecisionTreeClassifier,
-        #     'NB': GaussianNB,
-        #     'SVM': lambda: SVC(gamma='auto')
-        # }
-        # for
         models = []
-        models.append(('KNN', KNeighborsClassifier()))
-        models.append(('CART', DecisionTreeClassifier()))
-        models.append(('NB', GaussianNB()))
-        models.append(('SVM', SVC(gamma='auto')))
-        # evaluate each model in turn
+        models.extend([
+            ('KNN', KNeighborsClassifier(), 0),
+            ('CART', DecisionTreeClassifier(), 1),
+            ('NB', GaussianNB(), 2),
+            ('SVM', SVC(gamma='auto'), 3)
+        ])
         results = []
         names = []
-        for name, model in models:
+        fig, axes = pyplot.subplots(2, 4, sharex=True, sharey=True, figsize=(20,5), gridspec_kw={'hspace': 1, 'wspace': 1})
+        fig.suptitle("Confusion matrices")
+        fig.tight_layout()
+        for name, model, subplot_row in models:
             print(f"---------------------------\nRunning classification for: {name}")
             #kfold - k cross-validation to algorytm polegający na testowaniu nauczania(sprawdzania jego wydajności). 
             #Zbiór TESTOWY jest dzielony na K podzbiorów. W każdej z k iteracji,
@@ -91,13 +86,25 @@ class App():
 
             print(accuracy_score(y_validation, predictions))
             print(confusion_matrix(y_validation, predictions))
+            titles_options = [(f"{name}: CF", None, 0), (f"{name}: normalized CF", 'true', 1)]
+            for title, normalize, subplot_num in titles_options:
+                disp = plot_confusion_matrix(model, x_validation, y_validation,
+                                            cmap=pyplot.cm.Blues,
+                                            ax=axes[subplot_num, subplot_row],
+                                            normalize=normalize)
+                disp.ax_.set_title(title)
+                self.plot_show()
             print(classification_report(y_validation, predictions))
 
 
         # Compare Algorithms
-        pyplot.boxplot(results, labels=names)
-        pyplot.title('Algorithm Comparison')
-        self.plot_show(pyplot)
+        fig = pyplot.figure()
+        fig.suptitle("Algorithm Comparison")
+        ax = fig.add_subplot(1,1,1)
+        ax.set_title("Algorithm Comparison")
+        ax.boxplot(results, labels=names)
+        self.plot_show()
+        input("Press Enter to continue")
 
 if __name__ == '__main__':
     App().run()
