@@ -25,6 +25,11 @@ from sklearn.svm import SVC
 from app.configuration.config import json_config as cfg
 
 class App():
+    def plot_show(self, plt):
+        pyplot.draw()
+        pyplot.pause(0.1)
+        input("Press Enter to continue")
+
     def run(self):
         #load dataset
         dataset = read_csv(cfg.dataSourceUrl, header=0)
@@ -40,20 +45,26 @@ class App():
             #print avaiable classes
             print(dataset.groupby(classColumnName).size())
 
-        dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
-        pyplot.show()
+        dataset.plot(kind='box', subplots=True, sharex=False, sharey=False)
+        self.plot_show(pyplot)
 
         scatter_matrix(dataset)
-        pyplot.show()
+        self.plot_show(pyplot)
 
-        #podzielenie dataset -> 4 kolumny danych = x; 1 kolumna wyników = y
         array = dataset.values
-        x = array[:,0:cfg.n_data_columns]
-        y = array[:,cfg.n_data_columns]
+        x = array[:,0:len(dataset.columns)-1]
+        y = array[:,len(dataset.columns)-1]
         #na podstawie x i y otrzymujemy tablice testowe i wynikowe
         x_train, x_validation, y_train, y_validation = train_test_split(x,y, test_size=cfg.test_size, random_state=1)
 
         # Spot Check Algorithms
+        # algorithms = {
+        #     'KNN': KNeighborsClassifier,
+        #     'CART': DecisionTreeClassifier,
+        #     'NB': GaussianNB,
+        #     'SVM': lambda: SVC(gamma='auto')
+        # }
+        # for
         models = []
         models.append(('KNN', KNeighborsClassifier()))
         models.append(('CART', DecisionTreeClassifier()))
@@ -63,6 +74,7 @@ class App():
         results = []
         names = []
         for name, model in models:
+            print(f"---------------------------\nRunning classification for: {name}")
             #kfold - k cross-validation to algorytm polegający na testowaniu nauczania(sprawdzania jego wydajności). 
             #Zbiór TESTOWY jest dzielony na K podzbiorów. W każdej z k iteracji,
             # brane jest k-1 pozdbiorów, następuje ich nauczanie, następnie sprawdzenie 'jakości' nauczonego modelu.
@@ -73,20 +85,19 @@ class App():
             results.append(cv_results)
             names.append(name)
             print('%s: %f (%f)' % (name, cv_results.mean(), cv_results.std()))
+            # Make predictions on validation dataset
+            model.fit(x_train, y_train)
+            predictions = model.predict(x_validation)
+
+            print(accuracy_score(y_validation, predictions))
+            print(confusion_matrix(y_validation, predictions))
+            print(classification_report(y_validation, predictions))
+
 
         # Compare Algorithms
         pyplot.boxplot(results, labels=names)
         pyplot.title('Algorithm Comparison')
-        pyplot.show()
-
-        # Make predictions on validation dataset
-        model = SVC(gamma='auto')
-        model.fit(x_train, y_train)
-        predictions = model.predict(x_validation)
-
-        print(accuracy_score(y_validation, predictions))
-        print(confusion_matrix(y_validation, predictions))
-        print(classification_report(y_validation, predictions))
+        self.plot_show(pyplot)
 
 if __name__ == '__main__':
     App().run()

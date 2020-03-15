@@ -2,7 +2,7 @@ from pathlib import Path
 from pandas import read_json
 
 class Config(object):
-    def __init__(self, dataSourceUrl, test_size, n_splits, should_describe_data, n_data_columns):
+    def __init__(self, dataSourceUrl, test_size, n_splits, should_describe_data):
         self.dataSourceUrl = dataSourceUrl
         self.test_size = test_size
         self.n_splits = n_splits
@@ -17,7 +17,6 @@ def as_config(dict):
         dict[dataSetName]['test_size'],
         dict[dataSetName]['n_splits'],
         dict[dataSetName]['should_describe_data'],
-        dict[dataSetName]['n_data_columns']
     )
 
 # configuration = json.loads(Path("configuration.json").read_text(), object_hook = as_config)
