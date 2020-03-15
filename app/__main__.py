@@ -30,19 +30,16 @@ class App():
         #names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
         dataset = read_csv(cfg.dataSourceUrl, header=0)
 
-        #shape 
-        print(dataset.shape)
-
-        #peek 20 rows
-        print(dataset.head(20))
-
-        #describe each column
-        print(dataset.describe())
-
-        #get last column name
-        classColumnName = dataset.columns[-1]
-        #print avaiable classes
-        print(dataset.groupby(classColumnName).size())
+        if cfg.should_describe_data:    
+            print(dataset.shape)
+            #peek 20 rows
+            print(dataset.head(20))
+            #describe each column
+            print(dataset.describe())
+            #get last column name
+            classColumnName = dataset.columns[-1]
+            #print avaiable classes
+            print(dataset.groupby(classColumnName).size())
 
         dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
         pyplot.show()
@@ -52,10 +49,10 @@ class App():
 
         #podzielenie dataset -> 4 kolumny danych = x; 1 kolumna wyników = y
         array = dataset.values
-        x = array[:,0:4]
-        y = array[:,4]
+        x = array[:,0:cfg.n_data_columns]
+        y = array[:,cfg.n_data_columns]
         #na podstawie x i y otrzymujemy tablice testowe i wynikowe
-        x_train, x_validation, y_train, y_validation = train_test_split(x,y, test_size=0.2, random_state=1)
+        x_train, x_validation, y_train, y_validation = train_test_split(x,y, test_size=cfg.test_size, random_state=1)
 
         # Spot Check Algorithms
         models = []
@@ -72,7 +69,7 @@ class App():
             # brane jest k-1 pozdbiorów, następuje ich nauczanie, następnie sprawdzenie 'jakości' nauczonego modelu.
             #Ze wszystkiego wyciągana jest średnia, w ten sposób otrzymuje się skuteczność nauczania modelu.
             #Przy pomocy danego algorytmu uczenia maszynowego!
-            kfold = StratifiedKFold(n_splits=10, random_state=1, shuffle=True)
+            kfold = StratifiedKFold(n_splits=cfg.n_splits, random_state=1, shuffle=True)
             cv_results = cross_val_score(model, x_train, y_train, cv=kfold, scoring='accuracy')
             results.append(cv_results)
             names.append(name)
