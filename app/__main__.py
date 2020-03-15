@@ -27,8 +27,8 @@ from app.configuration.config import configuration as cfg
 class App():
     def run(self):
         #load dataset
-        names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
-        dataset = read_csv(cfg.dataSourceUrl, names=names)
+        #names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
+        dataset = read_csv(cfg.dataSourceUrl, header=0)
 
         #shape 
         print(dataset.shape)
@@ -39,8 +39,10 @@ class App():
         #describe each column
         print(dataset.describe())
 
+        #get last column name
+        classColumnName = dataset.columns[-1]
         #print avaiable classes
-        print(dataset.groupby('class').size())
+        print(dataset.groupby(classColumnName).size())
 
         dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
         pyplot.show()

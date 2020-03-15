@@ -1,3 +1,3 @@
 {
-    "dataSourceUrl": "https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv"
+    "dataSourceUrl": "./data/iris.csv"
 }
