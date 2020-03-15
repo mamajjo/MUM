@@ -22,12 +22,11 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 #Load submodules
-from app.configuration.config import configuration as cfg
+from app.configuration.config import json_config as cfg
 
 class App():
     def run(self):
         #load dataset
-        #names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'class']
         dataset = read_csv(cfg.dataSourceUrl, header=0)
 
         if cfg.should_describe_data:    
