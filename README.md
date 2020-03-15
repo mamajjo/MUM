@@ -7,3 +7,6 @@
 
 ## Save requirements
 `pip freeze > requirements.txt`
+
+## Run app
+`python -m app`
