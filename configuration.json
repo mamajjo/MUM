@@ -1,5 +1,5 @@
 {
-    "chosenDataSet":"wine-quality",
+    "chosenDataSet":"glass",
     "iris":{
         "dataSourceUrl": "./data/iris.csv",
         "test_size": 0.2,
