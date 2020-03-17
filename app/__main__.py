@@ -69,7 +69,6 @@ class App():
         names = []
         fig, axes = pyplot.subplots(5, 2, sharex=True, sharey=True, figsize=(20,5), gridspec_kw={'hspace': 1, 'wspace': 1})
         fig.suptitle("Confusion matrices")
-        fig.tight_layout()
         for name, model, subplot_row in models:
             print(f"---------------------------\nRunning classification for: {name}")
             #kfold - k cross-validation to algorytm polegający na testowaniu nauczania(sprawdzania jego wydajności). 
