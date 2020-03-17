@@ -1,5 +1,5 @@
 {
-    "chosenDataSet":"glass",
+    "chosenDataSet":"cancer",
     "iris":{
         "dataSourceUrl": "./data/iris.csv",
         "test_size": 0.2,
@@ -14,6 +14,18 @@
     },
     "glass": {
         "dataSourceUrl": "./data/glass/glass.csv",
+        "test_size": 0.2,
+        "n_splits": 10,
+        "should_describe_data": true
+    },
+    "cancer": {
+        "dataSourceUrl": "./data/cancer.csv",
+        "test_size": 0.2,
+        "n_splits": 10,
+        "should_describe_data": true
+    },
+    "titanic": {
+        "dataSourceUrl": "./data/titanic.csv",
         "test_size": 0.2,
         "n_splits": 10,
         "should_describe_data": true

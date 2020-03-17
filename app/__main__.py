@@ -44,7 +44,7 @@ class App():
             #print avaiable classes
             print(dataset.groupby(classColumnName).size())
         
-        # dataset.plot(kind='box', subplots=True, layout=(3,4), sharex=False, sharey=False)
+        # dataset.plot(kind='box', subplots=True, sharex=False, sharey=False)
         # self.plot_show()
 
         # scatter_matrix(dataset)
@@ -65,7 +65,7 @@ class App():
         ])
         results = []
         names = []
-        fig, axes = pyplot.subplots(2, 4, sharex=True, sharey=True, figsize=(20,5), gridspec_kw={'hspace': 1, 'wspace': 1})
+        fig, axes = pyplot.subplots(4, 2, sharex=True, sharey=True, figsize=(20,5), gridspec_kw={'hspace': 1, 'wspace': 1})
         fig.suptitle("Confusion matrices")
         fig.tight_layout()
         for name, model, subplot_row in models:
@@ -90,7 +90,7 @@ class App():
             for title, normalize, subplot_num in titles_options:
                 disp = plot_confusion_matrix(model, x_validation, y_validation,
                                             cmap=pyplot.cm.Blues,
-                                            ax=axes[subplot_num, subplot_row],
+                                            ax=axes[subplot_row, subplot_num],
                                             normalize=normalize)
                 disp.ax_.set_title(title)
                 self.plot_show()
