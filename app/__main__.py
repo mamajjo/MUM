@@ -22,6 +22,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+from sklearn.neural_network import MLPClassifier
 #Load submodules
 from app.configuration.config import json_config as cfg
 
@@ -61,11 +62,12 @@ class App():
             ('KNN', KNeighborsClassifier(), 0),
             ('CART', DecisionTreeClassifier(), 1),
             ('NB', GaussianNB(), 2),
-            ('SVM', SVC(gamma='auto'), 3)
+            ('SVM', SVC(gamma='auto'), 3),
+            ('MLP', MLPClassifier(alpha=1e-5, hidden_layer_sizes=(50,10), max_iter=5000), 4)
         ])
         results = []
         names = []
-        fig, axes = pyplot.subplots(2, 4, sharex=True, sharey=True, figsize=(20,5), gridspec_kw={'hspace': 1, 'wspace': 1})
+        fig, axes = pyplot.subplots(2, 5, sharex=True, sharey=True, figsize=(20,5), gridspec_kw={'hspace': 1, 'wspace': 1})
         fig.suptitle("Confusion matrices")
         fig.tight_layout()
         for name, model, subplot_row in models:
