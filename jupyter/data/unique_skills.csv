@@ -1,0 +1,571 @@
+,0
+0,.NET C#
+1,.Net
+2,3D level Design
+3,3Dmatch
+4,3GPP
+5,5G
+6,AAA Services
+7,AI
+8,AISEC
+9,AMS
+10,API
+11,ARM
+12,ASP .NET Web API
+13,ASP.
+14,ASP.NET
+15,ASP.NET.MVC 4/5.2
+16,AWS
+17,AWS/Azure/Google Cloud
+18,AWS/GCP
+19,Access
+20,Active Directory
+21,Adobe Creative Cloud
+22,Adroid SDK
+23,Advanced Installer
+24,Advertising
+25,Agile
+26,Agile/Scrum
+27,Akka
+28,Amazon AWS
+29,Amelia Chat
+30,Amplitude
+31,Analityczne Myślenie
+32,Analiza Biznesowa
+33,Analytical Thinking
+34,Analytics
+35,Android
+36,Android/iOS
+37,Angielski
+38,Angular
+39,Angular2+
+40,AngularJS
+41,Ansible
+42,Ansible/Puppet/Chef/ Salt
+43,AnyConnect
+44,Apache
+45,Apex
+46,Architecture
+47,Aurelia
+48,Automated Testing
+49,Automatyzacja
+50,Autosar
+51,Autosys
+52,Axure RP
+53,Azure
+54,BASH/ZSH
+55,BI Publisher
+56,BPM
+57,BPMN
+58,BSCS
+59,Backend
+60,Bamboo
+61,Bash
+62,Bash/Shell
+63,Batch
+64,Bazy Danych
+65,Behat
+66,Big Data
+67,Bitcoin
+68,Blockchain
+69,Boost
+70,Build/CI software
+71,Business Analysis
+72,C
+73,C#
+74,C++
+75,C++11
+76,C/C++
+77,CAD
+78,CCNA Cerificate
+79,CCNP
+80,CD
+81,CI
+82,CI/CD
+83,CIFS
+84,CQRS
+85,CRM
+86,CSM
+87,CSS
+88,CSS/SCSS
+89,CSS3
+90,CSV
+91,Camunda BPM
+92,Ceph
+93,Chatboty
+94,Chef
+95,Cisco
+96,Cisco)
+97,Citrix
+98,Civil Engineering
+99,Clean Code
+100,Cloud
+101,Cloudera
+102,Cobol
+103,Cocoa Touch
+104,CocoaPods
+105,Code Review
+106,CodedUI
+107,Communication
+108,Commvault
+109,Composer
+110,Computer science
+111,Confluence
+112,Containers
+113,Continuous Delivery
+114,Control-M
+115,Cordova
+116,Credit Risk
+117,Cucumber
+118,Cura
+119,Customer Support
+120,Cybersecurity
+121,Cylance
+122,DB/SQL
+123,DDD
+124,DELL EMC
+125,DI
+126,DPDK
+127,DRF
+128,DSP
+129,DWH
+130,Dagger 2
+131,Dagger2
+132,Dart
+133,Data Integration
+134,DataStage
+135,Databases
+136,Dell Boomi
+137,Design Patterns
+138,DevOps
+139,Distributed systems
+140,Django
+141,Docker
+142,Docker/Kubernates
+143,Doctrine
+144,Dokumentacja
+145,Doors
+146,Drupal
+147,Drupal/Symfony
+148,E-commerce
+149,EA
+150,EA; StarUML
+151,ECMAScript
+152,EDI
+153,EKS
+154,EKS/AKS
+155,ELK Stack
+156,ERP
+157,ES6
+158,ES6+
+159,ES7
+160,ESNext
+161,ETL
+162,Elasticsearch
+163,Electron
+164,Elixir
+165,Embedded
+166,English
+167,Enova365
+168,Enterprise Architect
+169,Entity Framework
+170,Ethereum
+171,Experience in support
+172,Exploratory testing
+173,Express.js
+174,FPGA
+175,Figma / Sketch
+176,Flask
+177,Flutter
+178,Front-End
+179,Functional Programming
+180,GCP
+181,GCP/AWS
+182,GIT/Bitbucket
+183,GKE
+184,GNU
+185,GUI
+186,GXP
+187,Game Design
+188,Gerrit
+189,Gherkin
+190,Git
+191,GitHub
+192,GitLab
+193,Gitlab CI
+194,Go
+195,Golang
+196,Google Analytics
+197,Gradle
+198,GraphQL
+199,Graphl
+200,Groovy
+201,HAProxy
+202,HLASM
+203,HP QTP
+204,HTML
+205,HTML&CSS
+206,HTML/CSS
+207,HTML5
+208,HTML5/CSS3
+209,HTTP
+210,Hadoop
+211,Helpdesk
+212,Heroku
+213,Hibernate
+214,Hive
+215,HotJar
+216,HubSpot
+217,I 4.0
+218,IBML
+219,ICT
+220,IDE
+221,IDS
+222,IIS
+223,IP networks
+224,ISE
+225,ISTQB
+226,IT
+227,ITIL
+228,ITSM
+229,Illustrator
+230,Image Processing
+231,InVision
+232,Incident management
+233,Informatica Powercenter
+234,Ingress
+235,IntelliJ
+236,IoT
+237,Ionic
+238,J2EE
+239,JAVA SCRIPT
+240,JBoss
+241,JEE
+242,JIRA
+243,JMeter
+244,JPA
+245,JS
+246,JS/jQuery
+247,JSON
+248,JUnit
+249,JVM
+250,Jakarta EE
+251,Java
+252,Java/Kotlin
+253,Java11
+254,JavaScript
+255,JavaScript/ ECMAScript
+256,JavaScript/React
+257,Jenkins
+258,Jenkins/CI
+259,Jira / Git
+260,Kafka
+261,Kanban
+262,Keras
+263,Kotlin
+264,Kubernetes
+265,Laravel
+266,Leadership
+267,Linear Algebra
+268,Linq
+269,Linux
+270,Lumen 5
+271,MDS
+272,ML libraries
+273,MS Azure
+274,MVC
+275,MVVM
+276,Machine Learning
+277,Magento
+278,MagicDraw
+279,Makietowanie
+280,Management
+281,Manual Testing
+282,Marketing
+283,Matlab
+284,Maven
+285,Mcafee
+286,Memory management
+287,Microservice Architecture
+288,Microservices
+289,Microsoft ASP.NET
+290,Migrations
+291,Mobile
+292,Mockito
+293,MongoDB
+294,Monitoring Tools
+295,MsSQL
+296,MySQL
+297,Network
+298,Networking
+299,Networks
+300,Nginx
+301,Niemiecki
+302,NoSQL
+303,Node.js
+304,NumPy
+305,Nutanix/VMware
+306,OEM
+307,OO
+308,OOP
+309,ORM
+310,OS
+311,OWASP
+312,Objective-C
+313,Office 365
+314,Open source
+315,OpenCV
+316,OpenShift
+317,Oracle
+318,Order Management
+319,Outlook
+320,PC
+321,PHP
+322,PHP/Symfony
+323,PHP7
+324,PL SQL
+325,PL/SQL
+326,PM
+327,PRINCE2
+328,PY
+329,Packaging tools
+330,Pandas
+331,Pentaho
+332,People Management
+333,Performence monitoring
+334,Perl
+335,Pharma Industry exp.
+336,Phoenix
+337,Photoshop / Sketch
+338,Polish
+339,PostgreSQL
+340,Postman
+341,PostreSQL
+342,Power BI
+343,Powershell
+344,Presales
+345,PrestaShop
+346,Proactivity
+347,Problem Solving
+348,Product Management
+349,Production monitoring
+350,Programming
+351,Programowanie obiektowe
+352,Project Management
+353,Prometheus
+354,Puppet
+355,PySpark
+356,Python
+357,Python/Django
+358,QA
+359,QML
+360,QRadar
+361,QTP
+362,Qt
+363,R
+364,RAC
+365,RAID
+366,RDBMS
+367,REST
+368,RESTful
+369,RPA
+370,RTP
+371,RWD
+372,Rails
+373,Rapid 7
+374,React
+375,ReactJS
+376,ReactiveX
+377,Redis
+378,Redmine
+379,Redux
+380,Relacyjne Bazy Danych
+381,Relational Databases
+382,Responsive Web Design
+383,RoR
+384,RobotFramework
+385,Ruby
+386,Rust
+387,RxJS
+388,RxJava
+389,RxSwift
+390,SAP
+391,SAS
+392,SASS
+393,SCCM
+394,SCRUM/AGILE
+395,SCSS
+396,SDK
+397,SDLC
+398,SIEM
+399,SIP
+400,SIR
+401,SOA
+402,SOAP
+403,SOLID Principles
+404,SPI
+405,SQA
+406,SQL
+407,SQLite
+408,SRTP
+409,SSIS
+410,SSRS
+411,SaaS
+412,SafeCom
+413,Sales
+414,Salesforce
+415,Scala
+416,Scala/Java
+417,ScriptRunner
+418,Scrum
+419,"Scrum, Kanban"
+420,Security
+421,Seeburger
+422,Selenium
+423,Serverless Architecture
+424,ServiceNow
+425,SharePoint
+426,Shell
+427,Siebel CRM
+428,Sikuli
+429,Simpana
+430,Sitecore
+431,Sketch
+432,SoC
+433,SoapUI
+434,Software Architecture
+435,Solaris
+436,Solid
+437,Solidus
+438,Spark
+439,Spock
+440,Sprin Boot
+441,Spring
+442,Stay in Front
+443,Storage
+444,Swif
+445,Swift
+446,Sybase
+447,Symfony
+448,System Verilog/UVM
+449,T-SQL
+450,TCP/IP
+451,TDD
+452,TM
+453,TMF Open API
+454,TMS
+455,TSQL
+456,TST
+457,TTCN3
+458,Tableau
+459,Team Leadership
+460,Teamwork
+461,Technical Support 2 line
+462,Telco
+463,Tenable
+464,TensorFlow
+465,Terraform
+466,Test
+467,TestLink
+468,TestNG
+469,Tester
+470,Testing
+471,Teststack
+472,Tomcat
+473,Troubleshooting
+474,Tworzenie szablonów
+475,TypeScript
+476,UAT
+477,UDK
+478,UFT
+479,UI
+480,UI/UX
+481,UML
+482,UX
+483,UXPin
+484,Ubuntu
+485,Umiejętności analityczne
+486,Unit Testing
+487,Unity
+488,Unix
+489,Unreal Engine
+490,User Experience
+491,VB.Net
+492,VBA
+493,VDI
+494,VMware
+495,VPN
+496,VPP
+497,Veritas VVR
+498,Virtualization
+499,Visual Basic
+500,Vue
+501,Vue.js
+502,WCF
+503,WIFI
+504,WPF
+505,Web API
+506,WebDriver
+507,WebService
+508,Weblogic Enterprise
+509,Webpack
+510,WildFly
+511,WinForms
+512,Windows
+513,WordPress
+514,Writing Test Scenarios
+515,X++
+516,XCode
+517,XML
+518,XenApp
+519,XenDesktop
+520,Yii
+521,Yii/Laravel/Symphony
+522,Z-Suite
+523,Zabbix
+524,Zend Framework
+525,Zeplin
+526,analysis and problem solving
+527,aplikacje mobilne
+528,backbone.js
+529,closure
+530,compilers
+531,contract managment
+532,dev
+533,eZ
+534,erlang
+535,games
+536,iOS
+537,iOS/Android
+538,insight
+539,j. angielski
+540,j.angielski
+541,jQuery
+542,java spring
+543,java8
+544,javascript/html/css
+545,komunikacja
+546,macierze dyskowe
+547,multus
+548,narzędzi do prototypowania
+549,nestJS
+550,oracle database
+551,ownership
+552,people-focused design mindset
+553,php 7.1
+554,relational/NoSQL databases
+555,self-organisation
+556,serwery
+557,soar
+558,software testing
+559,system security
+560,test lead
+561,typoscript
+562,unit tests
+563,vendor management
+564,vert
+565,web/network security
+566,workshop
+567,yii2
+568,środowisko JAVA
+569,С#
