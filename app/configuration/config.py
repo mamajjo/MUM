@@ -21,3 +21,5 @@ def as_config(dict):
 # configuration = json.loads(Path("configuration.json").read_text(), object_hook = as_config)
 configuration = read_json("./configuration.json")
 json_config = as_config(configuration)
+
+dummy_variable = "I'm dump"
