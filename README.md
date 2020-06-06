@@ -23,4 +23,6 @@ docker run --rm -it -e NB_GID=100 -p 8890:8888 -v "$(pwd)/jupyter:/home/jovyan/h
 
 ### MacOS
 
-docker run --rm -it -e GRANT_SUDO=yes -p 8888:8888 -v $PWD/jupyter:/home/jovyan/host-note jupyter/scipy-notebook:latest
+docker run --rm -it -e GRANT_SUDO=yes -p 8888:8888 -v $PWD/jupyter:/home/jovyan/host-note jupyter/scipy-notebook:latest start-notebook.sh --NotebookApp.token=''
+
+docker run --rm -it -e NB_GID=100 -e GRANT_SUDO=yes -p 8899:8888 -v "$PWD/jupyter:/home/jovyan/host-note jupyter/scipy-notebook:latest start-notebook.sh --NotebookApp.iopub_data_rate_limit=10000000000 --NotebookApp.token=''
