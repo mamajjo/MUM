@@ -1,4 +1,4 @@
-from pandas import read_csv, json_normalize
+from pandas import read_csv, json_normalize, read_json
 import json
 import numpy as np
 import urllib.request 
@@ -14,8 +14,8 @@ def get_jobs_info(api_url = 'https://justjoin.it/api/offers'):
         return None
 
 def map_columns_to_csv(dataset, cfg):
-    skill_map = read_csv('./data/skills_mapped.csv', sep=":")
-    unique_skill_columns = (skill_map['mapping'].unique())
+    skill_map = read_csv('/home/jovyan/host-note/data/skills_mapped.csv', sep=":")
+    unique_skill_columns = (skill_map['Skill'])
 
     for skill in unique_skill_columns:
         dataset[str(skill)] = 0
@@ -30,7 +30,7 @@ def map_columns_to_csv(dataset, cfg):
                 print(f"Could not find '{name}' in map")
                 continue
             name_index_in_map = mapped_val[0][0]
-            name = skill_map.iloc[name_index_in_map]['mapping']
+            name = skill_map.iloc[name_index_in_map]['Skill']
             if not name == '-':
                 if row[name] == 0:
                     row[name] = skill_level_tuple['level']
@@ -77,7 +77,7 @@ def preprocess_data(df, cfg):
     salaryless_df = df.loc[((df.salary_currency.isnull()) | (df.salary_from.isnull()))]
     df = df.loc[((df.salary_currency.notnull()) & (df.salary_from.notnull()))]
     print(f"Found {salaryless_df.shape[0]} job ads without salary range or currency")
-    if cfg.should_describe_data:    
+    if cfg.should_describe_data:
         print(df.shape)
         print(df[["salary_from", "salary_to"]].describe())
     df = take_only_country_translate_currency(df)
@@ -85,3 +85,14 @@ def preprocess_data(df, cfg):
     
 def get_dataset(cfg):
     return preprocess_data(read_dataset(cfg), cfg)
+
+def get_raw_dataset(cfg):
+    print("GetRawDataset - Started")
+    dataset = read_json("/home/jovyan/host-note/data/joinit_data.json")
+    print("GetRawDataset - read_json - DONE")
+    map_columns_to_csv(dataset, cfg)
+    print("GetRawDataset - map_columns_to_csv - DONE")
+    dataset = read_csv(cfg.dataSourceMapped)
+    print("GetRawDataset - read_csv - DONE")
+    return preprocess_data(dataset, cfg)
+

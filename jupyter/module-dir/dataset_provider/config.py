@@ -22,8 +22,8 @@ def as_config(dict, dataSetName):
 def create_global_config(json_string = """
     {
         "it_data":{
-            "dataSourceRaw": "./data/result_table.csv",
-            "dataSourceMapped": "./data/joinit_data.csv",
+            "dataSourceRaw": "/home/jovyan/host-note/data/result_table.csv",
+            "dataSourceMapped": "/home/jovyan/host-note/data/joinit_data.csv",
             "useOnlineData": false,
             "test_size": 0.2,
             "n_splits": 10,
