@@ -14,7 +14,7 @@ def get_jobs_info(api_url = 'https://justjoin.it/api/offers'):
         return None
 
 def map_columns_to_csv(dataset, cfg):
-    skill_map = read_csv('/home/jovyan/host-note/data/skills_mapped.csv', sep=":")
+    skill_map = read_csv('/home/jovyan/host-note/data/deduplicated_skills-edit.csv', sep=":")
     unique_skill_columns = (skill_map['Skill'])
 
     for skill in unique_skill_columns:
