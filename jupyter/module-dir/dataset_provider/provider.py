@@ -15,7 +15,7 @@ def get_jobs_info(api_url = 'https://justjoin.it/api/offers'):
 
 def map_columns_to_csv(dataset, cfg):
     skill_map = read_csv('/home/jovyan/host-note/data/deduplicated_skills-edit.csv', sep=":")
-    unique_skill_columns = (skill_map['Skill'])
+    unique_skill_columns = (skill_map['mapping'])
 
     for skill in unique_skill_columns:
         dataset[str(skill)] = 0
@@ -30,12 +30,12 @@ def map_columns_to_csv(dataset, cfg):
                 print(f"Could not find '{name}' in map")
                 continue
             name_index_in_map = mapped_val[0][0]
-            name = skill_map.iloc[name_index_in_map]['Skill']
+            name = skill_map.iloc[name_index_in_map]['mapping']
             if not name == '-':
                 if row[name] == 0:
-                    row[name] = skill_level_tuple['level']
+                    row[name] = name #skill_level_tuple['level']
                 elif not row[name] == 0:
-                    row[name] = row[name] if row[name] >= skill_level_tuple['level'] else skill_level_tuple['level']
+                    row[name] = name #row[name] if row[name] >= skill_level_tuple['level'] else skill_level_tuple['level']
         result_df.loc[index] = row
     result_df.to_csv(cfg.dataSourceMapped)
 
